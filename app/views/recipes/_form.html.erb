@@ -1,6 +1,6 @@
-<% form_tag projects_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+
+<%= form_tag recipe_list_url, :method => "get" do %>
+<%= label_tag(:keyword, "I'm craving...") %>
+<%= text_field_tag :search, nil, placeholder: "Chili, Soup, Salmon, bread..." %>
+<%= submit_tag "Search", class: "button" %>
 <% end %>
