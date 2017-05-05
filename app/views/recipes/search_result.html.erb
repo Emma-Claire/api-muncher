@@ -4,9 +4,12 @@
 
       <h4>Search results</h4>
 
-      <% @recipes.each do |recipe| %>
-      <%= recipe.label %>
-      <% end %>
+      <p>
+
+        <% @recipes.each do |recipe| %>
+        <dv><%= link_to recipe.recipe_data, recipe_path(recipe.show_recipe) %></div></br>
+        <% end %>
+      </p>
 
     </section>
   </main>

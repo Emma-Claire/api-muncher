@@ -17,12 +17,12 @@ class Recipe
     @nutrition = recipe_params[:nutrition]
   end
 
-  def self.search_result(keyword) #or search_result?
+  def self.search_result(ingredient) #or search_result?
 
     query_params = {
       "app_id" => ENV["EDAMAM_APPLICATION_ID"],
       "app_key" => ENV["EDAMAM_APPLICATION_KEY"],
-      "q" => keyword
+      "q" => ingredient
     }
 
     search_result = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
@@ -46,10 +46,10 @@ class Recipe
 
     show_recipe = {}
 
-    show_recipe["label"] = search_result[0]["label"]
-  show_recipe["image"] = search_result[0]["image"]
-  show_recipe["ingredients"] = search_result[0]["ingredientLines"]
-  show_recipe["source"] = search_result[0]["source"] #should I add url here?
+  show_recipe[:label] = search_result[0][:label]
+  show_recipe[:image] = search_result[0][:image]
+  show_recipe[:ingredients] = search_result[0][:ingredientLines]
+  show_recipe[:source] = search_result[0][:source] #should I add url here?
   #ask whether I can skip nutrients
 
 return Recipe.new(recipe_info)
