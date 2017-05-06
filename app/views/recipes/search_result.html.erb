@@ -1,16 +1,18 @@
-<body>
+<body id = "searchlist">
   <main>
     <section>
 
       <h4>Search results</h4>
 
-      <p>
-
+      <p class="page">
+<% if @recipes.length == 0 %>
+<%= "No recipe matches your search. Please try again!" %>
+<% end %>
         <% @recipes.each do |recipe| %>
-        <dv><%= link_to recipe.recipe_data, recipe_path(recipe.show_recipe) %></div></br>
+        <div><%= link_to recipe.label, recipe_path(recipe.id) %></div>
+        </div><%= image_tag(recipe.image) %></div></br>
         <% end %>
       </p>
-
     </section>
   </main>
 </body>

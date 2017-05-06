@@ -1,7 +1,16 @@
 <body>
   <main>
     <section>
-      <h3><%= @recipe.name %></h3>
+      <h1>recipe page</h1>
+      <p><%= @recipe.label %></p>
+    </div><%= image_tag(@recipe.image) %></div>
+
+      <p><%= @recipe.source %></p>
+
+<p><%= @recipe.ingredientlines %></p>
+      <p><%= @recipe.ingredients %></p>
+
+
     </section>
   </main>
 </body>
