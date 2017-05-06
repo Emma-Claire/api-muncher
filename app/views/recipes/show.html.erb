@@ -18,22 +18,33 @@
         <% end %>
       </table>
     </section>
-    <section>
-      <table>
-        <thead>
-        </thead>
-        <% @recipe.nutrition.each do |key, n| %>
-        <tr>
-          <td>
-            <%= n %>
-          </td>
-        </tr>
-        <% end %>
-      </table>
-    </section>
+
+    <section class="columns large-6 small-12">
+  <h3>Nutrition</h3>
+  <table>
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+<% @recipe.nutrition.each do |key, value| %>
+  <tr>
+  <td>
+  <%= value["label"] %>
+  </td>
+  <td>
+    <%= value["quantity"].floor %>
+  </td>
+  <td>
+    <%= value["unit"] %>
+  </td>
+</tr>
+<% end %>
+</table>
+</section>
 
     <section>
-      <div> See full recipe on <%= link_to "#{@recipe.source} ", @recipe.url, class: "button" %></div>
+      <h3>Preparation</h3>
+      <div> See full recipe on <%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></div>
     </section>
 
 
