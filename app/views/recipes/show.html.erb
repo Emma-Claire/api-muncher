@@ -1,16 +1,43 @@
-<body>
+<body id="recipepage">
   <main>
     <section>
-      <h1>recipe page</h1>
-      <p><%= @recipe.label %></p>
-    </div><%= image_tag(@recipe.image) %></div>
+      <h2><%= @recipe.label %></h2>
+    </div><%= image_tag(@recipe.image) %></div></br>
 
-      <p><%= @recipe.source %></p>
-
-<p><%= @recipe.ingredientlines %></p>
-      <p><%= @recipe.ingredients %></p>
-
-
+    <section class="columns large-6 small-12">
+      <h3>Ingredients</h3>
+      <table>
+        <thead>
+        </thead>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <tr>
+          <td>
+            <%= ingredient %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
     </section>
-  </main>
+    <section>
+      <table>
+        <thead>
+        </thead>
+        <% @recipe.nutrition.each do |key, n| %>
+        <tr>
+          <td>
+            <%= n %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </section>
+
+    <section>
+      <div> See full recipe on <%= link_to "#{@recipe.source} ", @recipe.url, class: "button" %></div>
+    </section>
+
+
+
+  </section>
+</main>
 </body>

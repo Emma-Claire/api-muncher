@@ -6,15 +6,16 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_reader :label, :image, :id, :source, :ingredients, :ingredientlines, :nutrition
+  attr_reader :label, :image, :id, :source, :ingredients, :nutrition, :url; :yield
 
   def initialize(recipe_params)
     @label = recipe_params[:label]
     @image = recipe_params[:image]
     @id = recipe_params[:id]
     @source = recipe_params[:source]
-    @ingredientlines = recipe_params[:ingredientlines]
+    @url = recipe_params[:url]
     @ingredients = recipe_params[:ingredients]
+    @yield = recipe_params[:yield]
     @nutrition = recipe_params[:nutrition]
   end
 
@@ -53,13 +54,14 @@ class Recipe
 
     show_recipe[:image] = search_result[0]["recipe"]["image"]
 
-    show_recipe[:ingredients] = search_result[0]["recipe"]["ingredients"]
+    show_recipe[:ingredients] = search_result[0]["recipe"]["ingredientLines"]
 
-    show_recipe[:ingredientlines] = search_result[0]["recipe"]["ingredientlines"]
+    show_recipe[:yield]= search_result[0]["recipe"]["yield"]
 
     show_recipe[:source] = search_result[0]["recipe"]["source"]
+    show_recipe[:url]= search_result[0]["recipe"]["url"]
 
-    show_recipe[:nutrition] = search_result[0]["recipe"]["nutrition"]
+    show_recipe[:nutrition] = search_result[0]["recipe"]["totalNutrients"]
 
     show_recipe[:uri] = search_result[0]["recipe"]["id"] #should I add url here?
     #ask whether I can skip nutrients
