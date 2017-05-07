@@ -10,14 +10,14 @@
 <ul>
   <li class="recipe">
 
-        <h6><%= link_to recipe.label, recipe_path(recipe.id) %></h6>
+        <h6><span class="link"><%= link_to "#{recipe.label}", recipe_path(recipe.id) %></span></h6>
         <p class="image"><%= image_tag(recipe.image) %></p>
         <div>
-         <%= recipe.calories.floor/recipe.yield.floor %> Calories |
-         <%= recipe.ingredients.count %> Ingredients
+         <%= recipe.calories.floor/recipe.yield.floor %> Calories    |  
+         <%= recipe.ingredients.count %>    Ingredients
        </div>
        <div>From
-         <%= link_to "#{recipe.source} ", recipe.url, class: "link" %>
+         <span class="link"><%= link_to "#{recipe.source} ", recipe.url, class: "link" %></span>
        </div>
 
         </li>

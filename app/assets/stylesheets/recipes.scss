@@ -44,3 +44,22 @@ height: 10
 li {
   list-style-type: none;
 }
+h6{
+font-weight: bold;
+}
+h6 :hover{
+  color: mediumaquamarine;
+}
+
+.image{
+  box-shadow: 5px 5px 5px #888888;
+
+}
+
+.link:hover {
+  color: mediumaquamarine;
+}
+
+.link {
+  font-weight: bold;
+}
