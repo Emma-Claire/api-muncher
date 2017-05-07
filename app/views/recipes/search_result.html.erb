@@ -1,17 +1,29 @@
 <body id = "searchlist">
   <main>
-    <section class="item">
+    <section class="row" >
 
-
-      <p class="page">
 <% if @recipes.length == 0 %>
 <%= "No recipe matches your search. Please try again!" %>
 <% end %>
-        <% @recipes.each do |recipe| %>
-        <div><%= link_to recipe.label, recipe_path(recipe.id) %></div>
-        </div><%= image_tag(recipe.image) %></div></br>
+<% @recipes.each do |recipe| %>
+      <div class="left large-3 columns">
+<ul>
+  <li class="recipe">
+
+        <h6><%= link_to recipe.label, recipe_path(recipe.id) %></h6>
+        <p class="image"><%= image_tag(recipe.image) %></p>
+        <p>
+         <%= recipe.calories.floor/recipe.yield.floor %> Calories |
+         <%= recipe.ingredients.count %> Ingredients
+       </p>
+       <p>From
+         <%= link_to "#{recipe.source} ", recipe.url, class: "link" %>
+       </p>
+
+        </li>
+        </ul>
+        </div>
         <% end %>
-      </p>
     </section>
   </main>
 </body>

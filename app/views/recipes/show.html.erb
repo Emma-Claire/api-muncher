@@ -4,7 +4,7 @@
       <h2><%= @recipe.label %></h2>
     </div><%= image_tag(@recipe.image) %></div></br>
 
-    <section class="columns large-6 small-12">
+    <section class="columns large-3 small-12">
       <h3>Ingredients</h3>
       <table>
         <thead>
@@ -42,9 +42,11 @@
 </table>
 </section>
 
-    <section>
+    <section class="left columns large-3 small-12">
       <h3>Preparation</h3>
-      <div> See full recipe on <%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></div>
+      <table>
+      <tr> See full recipe on <%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></tr>
+      </table>
     </section>
 
 
