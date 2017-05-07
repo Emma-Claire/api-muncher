@@ -54,6 +54,7 @@ group :development, :test do
   gem 'minitest-vcr'
   gem 'webmock'
   gem 'listen'
+  gem 'sqlite3'
 end
 
 group :test do
