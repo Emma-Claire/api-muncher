@@ -1,3 +1,5 @@
+require_dependency '../../lib/recipe'
+
 class RecipesController < ApplicationController
 
   def index
