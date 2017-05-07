@@ -1,10 +1,19 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  font-family: 'Alegreya', serif;
+
+}
+
 #welcomepage {
-  background-image: url(http://healthyfooddiet.org/wp-content/uploads/sites/2/2017/01/food.jpg);
+  background-image: url(https://s-media-cache-ak0.pinimg.com/736x/ae/33/d2/ae33d2b76f62f13024a8d703e886bb8f.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.headerpage{
+  background-color: white;
 }
 
 .searchbar {
@@ -30,4 +39,8 @@ height: 10
   width: 400px;
   margin: 10%;
   padding-top: 10%;
+}
+
+li {
+  list-style-type: none;
 }

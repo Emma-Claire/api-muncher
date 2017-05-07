@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-<header>
-  <h1><%= link_to "Claire's Nutrition Box", root_path%></h1>
-</header>
+<body>
+  <header class='headerpage'>
+    <h1 ><%= image_tag("https://s-media-cache-ak0.pinimg.com/736x/bd/9f/93/bd9f93754d574068d7521cf88bf66083.jpg", width: "140px", alt: "logo")%><%= link_to "Claire's Nutrition Box", root_path%></h1>
+  </header>
 
 
-
+  <main class="row">
     <%= yield %>
+  </main>
+  <footer>
+  <div>
+      <div>
+        EDAMAM API
+      </div>
 
-    <footer>
-        <h6> Make sure to give credit to API creator here</h6>
-    </footer>
-
-  </body>
+    </div>
+  </footer>
+</body>
 </html>

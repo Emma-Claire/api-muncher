@@ -3,7 +3,7 @@
     <section class="row" >
 
 <% if @recipes.length == 0 %>
-<%= "No recipe matches your search. Please try again!" %>
+<%= "No recipes match your search. Please try again!" %>
 <% end %>
 <% @recipes.each do |recipe| %>
       <div class="left large-3 columns">
@@ -12,13 +12,13 @@
 
         <h6><%= link_to recipe.label, recipe_path(recipe.id) %></h6>
         <p class="image"><%= image_tag(recipe.image) %></p>
-        <p>
+        <div>
          <%= recipe.calories.floor/recipe.yield.floor %> Calories |
          <%= recipe.ingredients.count %> Ingredients
-       </p>
-       <p>From
+       </div>
+       <div>From
          <%= link_to "#{recipe.source} ", recipe.url, class: "link" %>
-       </p>
+       </div>
 
         </li>
         </ul>

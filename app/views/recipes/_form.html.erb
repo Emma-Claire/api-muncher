@@ -1,6 +1,6 @@
 
 <%= form_tag recipe_list_url, :method => "get" do %>
-<%= label_tag(:keyword, "I'm craving...") %>
-<%= text_field_tag :search, nil, placeholder: "Chili, Soup, Salmon, bread..." %>
+<%= label_tag(:keyword, "") %>
+<%= text_field_tag :search, nil, placeholder: "Search recipes for nutrition value" %>
 <%= submit_tag "Search", class: "button" %>
 <% end %>
