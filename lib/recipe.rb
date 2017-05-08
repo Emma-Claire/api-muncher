@@ -28,12 +28,12 @@ class Recipe
       "q" => ingredient
     }
 
-    search_result = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
+    search_result = HTTParty.get(BASE_URL, query: query_params, from: 0, to: 9).parsed_response["hits"]
 
     recipe_array = []
     search_result.each do |recipe|
       recipe_id_from_uri = recipe["recipe"]["uri"].split("_").last
-      recipe_data = {label: recipe["recipe"]["label"], image: recipe["recipe"]["image"], source: recipe["recipe"]["source"], url: recipe["recipe"]["url"], calories: recipe["recipe"]["calories"], yield: recipe["recipe"]["yield"], id: recipe_id_from_uri, ingredients: recipe["recipe"]["ingredients"]}  #ask someone about how to get id from uri using gsub
+      recipe_data = {label: recipe["recipe"]["label"], image: recipe["recipe"]["image"], source: recipe["recipe"]["source"], url: recipe["recipe"]["url"], calories: recipe["recipe"]["calories"], yield: recipe["recipe"]["yield"], id: recipe_id_from_uri, ingredients: recipe["recipe"]["ingredients"]}
       recipe_array << Recipe.new(recipe_data)
 
     end

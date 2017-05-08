@@ -1,3 +1,5 @@
+require "simplecov"
+SimpleCov.start
 require 'test_helper'
 
 describe Recipe do
@@ -14,7 +16,7 @@ describe Recipe do
       "calories" => {key: 'value'}
     }
     @recipe = Recipe.new(recipe_params)
-  end
+end
 
   it "needs a hash to initialize" do
     @recipe.class.must_equal Recipe
@@ -25,12 +27,29 @@ describe Recipe do
     @recipe.source.must_equal "someblog"
     @recipe.label.must_equal "Recipe title"
   end
-end
 
-describe "self.search_result" do
-  it "requires an argument" do
-
+  it "returns array of recipe objects" do
+    VCR.use_cassette("recipes") do
+      ingredient = "kale"
+      response = Recipe.search_result(ingredient)
+      response.class.must_equal Array
+    end
   end
 
-  it ""
+  it "returns an error message if no search word was entered" do
+    proc{
+      VCR.use_cassette("recipes") do
+        response = Recipe.search_result()
+      end
+    }.must_raise ArgumentError
+  end
+
+  it "returns one recipe in the show page" do
+    VCR.use_cassette("recipes") do
+      search = "kale"
+      search_output = Recipe.search_result(search)[0]
+      selection_output = Recipe.show_recipe(search_output.id)
+      selection_output.class.must_equal Recipe
+    end
+  end
 end
