@@ -1,4 +1,4 @@
-require_dependency '../../lib/recipe'
+
 
 class RecipesController < ApplicationController
 
@@ -11,6 +11,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.show_recipe(params[:label])  
+    @recipe = Recipe.show_recipe(params[:label])
   end
 end
