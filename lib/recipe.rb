@@ -27,15 +27,11 @@ class Recipe
       "app_key" => ENV["EDAMAM_APPLICATION_KEY"],
       "q" => ingredient
     }
-    Rails.logger.debug "=================================="
-    Rails.logger.debug "query_params = #{query_params}"
-    Rails.logger.debug "=================================="
+
 
 
     search_result = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"] #add from to here
-    Rails.logger.debug "=================================="
-    Rails.logger.debug "search_result = #{search_result}"
-    Rails.logger.debug "=================================="
+    
 
     recipe_array = []
     search_result.each do |recipe|
