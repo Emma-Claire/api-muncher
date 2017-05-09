@@ -1,5 +1,13 @@
 <body id="recipepage">
   <main>
+    <section>
+      <%if @recipes.length > 9 %>
+      <%= link_to "previous", recipe_list_path(:search => @ingredient, :page => @page - 1), class: "button" %>
+      <% end %>
+      <%= link_to "next", recipe_list_path(:search => @ingredient, :page => @page + 1), class: "button"%>
+      <%= link_to "New Search", root_path, class: "button" %>
+    </section>
+
     </div><%= image_tag(@recipe.image) %><h2><%= @recipe.label %></h2></div></br>
 
     <section class="columns large-3 small-12">
@@ -54,6 +62,12 @@
         <tr> See full recipe on <span class="link"><%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></span></tr>
       </table>
     </section>
-
+    <section>
+      <%if @recipes.length > 9 %>
+      <%= link_to "previous", recipe_list_path(:search => @ingredient, :page => @page - 1), class: "button" %>
+      <% end %>
+      <%= link_to "next", recipe_list_path(:search => @ingredient, :page => @page + 1), class: "button"%>
+      <%= link_to "New Search", root_path, class: "button" %>
+    </section>
   </main>
 </body>
