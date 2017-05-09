@@ -1,4 +1,4 @@
-require '../../lib/recipe'
+require_dependency '/../../lib/recipe'
 
 class RecipesController < ApplicationController
 
