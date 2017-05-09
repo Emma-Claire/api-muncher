@@ -1,4 +1,4 @@
-
+require '../../lib/recipe'
 
 class RecipesController < ApplicationController
 
