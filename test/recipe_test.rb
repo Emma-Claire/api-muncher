@@ -16,7 +16,7 @@ describe Recipe do
       "calories" => {key: 'value'}
     }
     @recipe = Recipe.new(recipe_params)
-end
+  end
 
   it "needs a hash to initialize" do
     @recipe.class.must_equal Recipe

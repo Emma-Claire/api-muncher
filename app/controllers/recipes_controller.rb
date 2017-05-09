@@ -11,6 +11,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.show_recipe(params[:label])  #how to assign id?''
+    @recipe = Recipe.show_recipe(params[:label])  
   end
 end

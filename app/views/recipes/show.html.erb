@@ -1,13 +1,14 @@
 <body id="recipepage">
   <main>
-    <section>
-      
     </div><%= image_tag(@recipe.image) %><h2><%= @recipe.label %></h2></div></br>
 
     <section class="columns large-3 small-12">
-      <h3>Ingredients</h3>
+
       <table>
         <thead>
+          <tr>
+              <h3>Ingredients</h3>
+          </tr>
         </thead>
         <% @recipe.ingredients.each do |ingredient| %>
         <tr>
@@ -20,37 +21,39 @@
     </section>
 
     <section class="columns large-6 small-12">
-  <h3>Nutrition</h3>
-  <table>
-    <thead>
-      <tr>
-      </tr>
-    </thead>
-<% @recipe.nutrition.each do |key, value| %>
-  <tr>
-  <td>
-  <%= value["label"] %>
-  </td>
-  <td>
-    <%= value["quantity"].floor %>
-  </td>
-  <td>
-    <%= value["unit"] %>
-  </td>
-</tr>
-<% end %>
-</table>
-</section>
-
-    <section class="left columns large-3 small-12">
-      <h3>Preparation</h3>
+      <!-- <h3>Nutrition</h3> -->
       <table>
-      <tr> See full recipe on <span class="link"><%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></span></tr>
+        <thead>
+          <tr>
+            <h3>Nutrition</h3>
+          </tr>
+        </thead>
+        <% @recipe.nutrition.each do |key, value| %>
+        <tr>
+          <td>
+            <%= value["label"] %>
+          </td>
+          <td>
+            <%= value["quantity"].floor %>
+          </td>
+          <td>
+            <%= value["unit"] %>
+          </td>
+        </tr>
+        <% end %>
       </table>
     </section>
 
+    <section class="left columns large-3 small-12">
+      <table>
+        <thead>
+          <tr>
+              <h3>Preparation</h3>
+          </tr>
+        </thead>
+        <tr> See full recipe on <span class="link"><%= link_to "#{@recipe.source} ", @recipe.url, class: "link" %></span></tr>
+      </table>
+    </section>
 
-
-  </section>
-</main>
+  </main>
 </body>

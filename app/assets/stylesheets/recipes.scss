@@ -3,9 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 *{
   font-family: 'Alegreya', serif;
-
 }
 
+span {
+  font-size: 12px;
+}
+
+footer {
+  height: 66px;
+}
+#footerlogo{
+  background-color: white;
+}
 #welcomepage {
   background-image: url(https://s-media-cache-ak0.pinimg.com/736x/ae/33/d2/ae33d2b76f62f13024a8d703e886bb8f.jpg);
   background-size: cover;
@@ -62,4 +71,12 @@ h6 :hover{
 
 .link {
   font-weight: bold;
+}
+
+.edamamlogo{
+  float: right;
+}
+
+#recipepage{
+  background-color: white;
 }
