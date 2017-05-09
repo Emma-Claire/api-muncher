@@ -6,8 +6,17 @@ class RecipesController < ApplicationController
 
   end
 
-  def search_result
-    @recipes = Recipe.search_result(params[:search])
+  def search_result #http://stackoverflow.com/questions/18672364/paginating-from-an-api-with-will-paginate-or-kaminari
+
+    if (params[:page].to_i == 1)
+      @recipes = Recipe.search_result(params[:search])
+      @page = 1
+    else
+      @page = params[:page].to_i
+      from = (@page * 10) - 10
+      to = from + 10
+      @recipes= Recipe.search_result(params[:search], from, to)
+    end
   end
 
   def show

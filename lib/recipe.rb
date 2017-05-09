@@ -20,7 +20,7 @@ class Recipe
     @calories = recipe_params[:calories]
   end
 
-  def self.search_result(ingredient) #or search_result?
+  def self.search_result(ingredient, from=0, to=9) #or search_result?
 
     query_params = {
       "app_id" => ENV["EDAMAM_APPLICATION_ID"],
@@ -28,7 +28,7 @@ class Recipe
       "q" => ingredient
     }
 
-    search_result = HTTParty.get(BASE_URL, query: query_params, from: 0, to: 9).parsed_response["hits"]
+    search_result = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"] #add from to here
 
     recipe_array = []
     search_result.each do |recipe|
