@@ -27,8 +27,15 @@ class Recipe
       "app_key" => ENV["EDAMAM_APPLICATION_KEY"],
       "q" => ingredient
     }
+    logger.debug "=================================="
+    logger.debug "query_params = #{query_params}"
+    logger.debug "=================================="
+
 
     search_result = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"] #add from to here
+    logger.debug "=================================="
+    logger.debug "search_result = #{search_result}"
+    logger.debug "=================================="
 
     recipe_array = []
     search_result.each do |recipe|
